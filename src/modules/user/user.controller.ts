@@ -95,7 +95,6 @@ const userLogin = async (req: Request, res: Response): Promise<void> => {
         );
 
         const userData = { ...user };
-        delete userData.password;
 
         res.status(200).json({
             success: true,

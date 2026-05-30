@@ -1,16 +1,12 @@
 import dotenv from "dotenv";
 import path from "path";
 import fs from "fs";
-import { fileURLToPath } from "node:url"
 
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const possiblePaths = [
     path.join(process.cwd(), ".env"),
     path.join(process.cwd(), "../.env"),
-    path.join(__dirname, "../../.env"),
 
 ];
 
