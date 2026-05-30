@@ -39,6 +39,9 @@ const loginUser = async (email: string, password: string) => {
     if (!user) {
         return null;
     }
+    if (!user.password) {
+        throw new Error("User password not found")
+    }
 
     const isValidPassword = await bcrypt.compare(password, user.password);
 
@@ -53,7 +56,7 @@ const loginUser = async (email: string, password: string) => {
 
     const token = jwt.sign(
         { id: user.id, name: user.name, role: user.role },
-        config.jwt_secret,
+        jwt_secret,
         { expiresIn: '1d' }
 
     );

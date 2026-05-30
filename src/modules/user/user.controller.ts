@@ -94,7 +94,7 @@ const userLogin = async (req: Request, res: Response): Promise<void> => {
             { expiresIn: "1d" }
         );
 
-        const userData = { ...user };
+        const { password: _, ...userData } = user;
 
         res.status(200).json({
             success: true,
