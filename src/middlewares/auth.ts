@@ -25,9 +25,6 @@ const authMiddleware = (...requireRoles: string[]) => {
             }
             const token = authHeader.split(" ")[1];
 
-            // const decode = jwt.verify(token, process.env.JWT_Acces_Secret || "secret-key") as JwtPayload & { id: number; name: string ; role: string };
-            // const decode = jwt.verify(token as string, (process.env.JWT_Acces_Secret || "secret=key")) as unknown as JwtPayload & { id: number; name: string; role: string }
-
             const decode = jwt.verify(
                 token as string,
                 config.jwt_secret as string
